@@ -80,16 +80,16 @@ app.post('/login',async(req,res)=>{
         })
     }
 });
-app.post('/tasks',(req,res)=>{
+app.post('/tasks',verifyToken,(req,res)=>{
 
 })
 app.get('/tasks',verifyToken,(req,res)=>{
 
 })
-app.put('/tasks/:id',(req,res)=>{
+app.put('/tasks/:id',verifyToken,(req,res)=>{
 
 })
-app.delete('/delete',(req,res)=>{
+app.delete('/delete',verifyToken,(req,res)=>{
 
 })
 app.listen(port,()=>{console.log('server is running at http://localhost:3000')});
