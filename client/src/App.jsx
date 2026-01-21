@@ -1,12 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./auth/Register";
+import Login from "./auth/Login";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./auth/protectedRoute";
 
-function App() {
-  return(
-    <div>hiii im back</div>
-  )
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* starting point */}
+        <Route path="/" element={<Register />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
