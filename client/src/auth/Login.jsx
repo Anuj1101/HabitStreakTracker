@@ -9,7 +9,7 @@ export default function Login() {
 
   const [form, setForm] = useState({
     email: "",
-    password: " ",
+    password: "",
   });
 
   const handleSubmit = async (e) => {
